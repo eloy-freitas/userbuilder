@@ -11,7 +11,8 @@ while test ! -z $GROUPNAME; do
     GROUPNAME=`getent group $group`
 
 done
-echo "$group"
+
+groupadd $group
 
 echo -n "enter the name of the user: "
 read user
