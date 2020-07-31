@@ -23,7 +23,8 @@ while test ! -z $USERNAME; do
     read user
     USERNAME=`getent passwd $user`
 done
-echo "useradd -b /bin/bash -g $group -b / -d $user $user"
+
+useradd -b /bin/bash -g $group -b / -d $user $user
 
 
 #groupadd $group
