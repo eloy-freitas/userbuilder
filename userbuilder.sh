@@ -25,7 +25,10 @@ while test ! -z $USERNAME; do
     USERNAME=`getent passwd $user`
 done
 
-useradd -b /bin/bash -g $group -b / -d $user $user
+useradd -b /bin/bash -g $group -b /home -d $user -m $user
 
+echo "now set the password for the user $user"
+passwd $user
 
-#groupadd $group
+echo "setting the  directory's ownerships"
+chmod ug+rwx,o+t /home/$user
